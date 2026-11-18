@@ -1,6 +1,7 @@
 
 const express = require('express');
 const connectDB = require('./config/db');
+const cors = require('cors');
 const app = express()
 const expenseRouter = require("./routes/expense.route")
 
@@ -9,6 +10,7 @@ const PORT = process.env.PORT
 connectDB()
 
 app.use(express.json())
+app.use(cors())
 
 app.use("/api/v1", expenseRouter)
 
